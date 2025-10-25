@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todolist/logic/providerData.dart';
 import 'package:todolist/ui/pages/homepage.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (context) => Providerdata(),child: const MyApp(),));
 }
 
 class MyApp extends StatelessWidget {

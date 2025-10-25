@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Dataadddialog extends StatelessWidget {
 
-  final VoidCallback?callback;  
+  final Function(String, String) callback;  
 
   const Dataadddialog({super.key, required this.callback});
 
@@ -27,7 +27,12 @@ class Dataadddialog extends StatelessWidget {
       ],),
     ), actions: [
       Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        SizedBox(width: 120, height: 40, child: ElevatedButton(onPressed: callback, child: Text("Add",style: TextStyle(fontSize: 18),))),
+        SizedBox(width: 120, height: 40, child: ElevatedButton(onPressed: (){
+          if (inputTitle.text.isEmpty == false && inputSubTitle.text.isEmpty ==  false){
+            callback(inputTitle.text,inputSubTitle.text);
+            Navigator.pop(context);
+          }
+        }, child: Text("Add",style: TextStyle(fontSize: 18),))),
         CloseButton()
       ],)
     ],);
