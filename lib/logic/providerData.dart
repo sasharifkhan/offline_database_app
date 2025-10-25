@@ -17,4 +17,14 @@ class Providerdata extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool _isSelected = false;
+  bool isSelected() => _isSelected;
+
+  checkboxtoggleswitch(bool value){
+    _isSelected = value;
+    notifyListeners();
+
+  }
+
+
 }
